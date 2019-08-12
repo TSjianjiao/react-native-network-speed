@@ -1,0 +1,24 @@
+{
+  "name": "react-native-network-speed",
+  "version": "1.0.0",
+  "description": "use android traffic stats api to listen the network speed",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TSjianjiao/react-native-network-speed.git"
+  },
+  "author": "oliver xu",
+  "keywords": [
+    "react-native",
+    "network",
+    "speed",
+    "traffic"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "react-native": "*"
+  }
+}
