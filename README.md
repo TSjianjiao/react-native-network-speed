@@ -44,8 +44,8 @@ import networkSpeed from 'react-native-network-speed';
 networkSpeed.startListenNetworkSpeed(({downLoadSpeed,downLoadSpeedCurrent,upLoadSpeed,upLoadSpeedCurrent}) => {
 		console.log(downLoadSpeed) // download speed for the entire device 整个设备的下载速度
 		console.log(downLoadSpeedCurrent) // download speed for the current app 当前app的下载速度
-		console.log(upLoadSpeed) // update speed for the entire device 整个设备的上传速度
-		console.log(upLoadSpeedCurrent) // update speed for the current app 当前app的上传速度
+		console.log(upLoadSpeed) // upload speed for the entire device 整个设备的上传速度
+		console.log(upLoadSpeedCurrent) // upload speed for the current app 当前app的上传速度
 	})
 // stop
 networkSpeed.stopListenNetworkSpeed()
