@@ -1,6 +1,6 @@
 {
   "name": "react-native-network-speed",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "use android traffic stats api to listen the network speed",
   "main": "index.js",
   "scripts": {

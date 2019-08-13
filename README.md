@@ -1,6 +1,6 @@
 
 # react-native-network-speed
-这个模块可以获取当前设备的网络速度，由于我并不是很懂app开发，可能很多bug，暂时还没有时间解决，所以慎用。
+这个模块可以获取当前设备的网络速度，由于我并不是很懂app开发，可能很多bug，暂时还没有时间解决，所以慎用。<br/>
 this module can show the network speed. currently only supports android (I am not good at developing apps)
 
 ## Getting started
@@ -42,10 +42,10 @@ this module can show the network speed. currently only supports android (I am no
 import networkSpeed from 'react-native-network-speed';
 // start
 networkSpeed.startListenNetworkSpeed(({downLoadSpeed,downLoadSpeedCurrent,upLoadSpeed,upLoadSpeedCurrent}) => {
-		console.log(downLoadSpeed) // download speed for the entire device 整个设备的下载速度
-		console.log(downLoadSpeedCurrent) // download speed for the current app 当前app的下载速度
-		console.log(upLoadSpeed) // upload speed for the entire device 整个设备的上传速度
-		console.log(upLoadSpeedCurrent) // upload speed for the current app 当前app的上传速度
+		console.log(downLoadSpeed + 'kb/s') // download speed for the entire device 整个设备的下载速度
+		console.log(downLoadSpeedCurrent + 'kb/s') // download speed for the current app 当前app的下载速度
+		console.log(upLoadSpeed + 'kb/s') // upload speed for the entire device 整个设备的上传速度
+		console.log(upLoadSpeedCurrent + 'kb/s') // upload speed for the current app 当前app的上传速度
 	})
 // stop
 networkSpeed.stopListenNetworkSpeed()
