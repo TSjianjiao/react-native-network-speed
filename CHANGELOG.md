@@ -20,3 +20,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 - Fixed an issue where it was not possible to restart listening after stopping listening.
 - 修复停止监听后，无法重新开始监听的问题
+
+## [1.0.2]
+### Addeds
+- add typescript declare
+- 添加`ts`声明文件
