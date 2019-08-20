@@ -5,7 +5,9 @@
 #import <React/RCTBridgeModule.h>
 #endif
 
-@interface RNNetworkSpeed : NSObject <RCTBridgeModule>
+#import <React/RCTEventEmitter.h>
+
+@interface RNNetworkSpeed : RCTEventEmitter <RCTBridgeModule>
 
 @end
   
