@@ -1,6 +1,6 @@
 {
   "name": "react-native-network-speed",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "get network speed for IOS, Android",
   "main": "index.js",
   "scripts": {

@@ -27,3 +27,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - 添加`ts`声明文件
 - IOS support (currently only the network speed of the entire device can be obtained)
 - 支持IOS (目前只能获取整个设备的上传下载，单个`app`的速度只能自己去计算)
+
+## [1.1.2]
+### Fixed
+- Fixed ios network speed conversion time is not correct
+- 修复`IOS`网速换算时间不在正确的问题

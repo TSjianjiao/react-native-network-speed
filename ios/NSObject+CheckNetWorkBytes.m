@@ -15,6 +15,9 @@ uint64_t _lastBytes_total;
 uint64_t _lastBytes_upload;
 uint64_t _lastBytes_download;
 
+long _lastDownLoadTimeStamp = 0;
+long _lastUpLoadTimeStamp = 0;
+
 @implementation NSObject (CheckNetWorkBytes)
 
 + (void )initCheck {
@@ -37,7 +40,7 @@ uint64_t _lastBytes_download;
     NSString *uploadSpeedStr = [self convertStringWithbyte:uploadBytes];
     NSString *downloadSpeedStr = [self convertStringWithbyte:downloadBytes];
 //    NSString *totalSpeedStr = [self convertStringWithbyte:totalBytes];
-
+    
     NSDictionary *speed = @{
                                 @"downLoadSpeed": downloadSpeedStr,
                                 @"upLoadSpeed": uploadSpeedStr,
@@ -50,20 +53,30 @@ uint64_t _lastBytes_download;
 // 上传速率
 + (long long )getUploadBytes:(NSString *)uploadBytes {
     long currentBytes = 0;
+    long currentTimeStamp = [self getNowTimeTimestamp];
+    
     if ( _lastBytes_upload > 0) {
-        currentBytes = [uploadBytes longLongValue] - _lastBytes_upload;
+        currentBytes = ([uploadBytes longLongValue] - _lastBytes_upload) / (currentTimeStamp - _lastUpLoadTimeStamp) * 1000;
     }
     _lastBytes_upload = [uploadBytes longLongValue];
+    
+    _lastUpLoadTimeStamp = currentTimeStamp;
+//    NSLog(@"upload%ld", _lastUpLoadTimeStamp);
     return currentBytes;
 }
 
 // 下载速率
 + (long long )getDownloadBytes:(NSString *)downloadBytes {
     long currentBytes = 0;
+    long currentTimeStamp = [self getNowTimeTimestamp];
+    
     if ( _lastBytes_download > 0) {
-        currentBytes = [downloadBytes longLongValue] - _lastBytes_download;
+        currentBytes = ([downloadBytes longLongValue] - _lastBytes_download) / (currentTimeStamp - _lastDownLoadTimeStamp) * 1000;
     }
+    
     _lastBytes_download = [downloadBytes longLongValue];
+    _lastDownLoadTimeStamp = currentTimeStamp;
+//    NSLog(@"download%ld", _lastDownLoadTimeStamp);
     return currentBytes;
 }
 
@@ -127,6 +140,30 @@ uint64_t _lastBytes_download;
 //        return [NSString stringWithFormat:@"%.3fGB", (double)bytes / (1024 * 1024 * 1024)];
 //    }
     return [NSString stringWithFormat:@"%.1f", (double)bytes / 1024];
+}
+
+// 获取当前时间戳
++ (long)getNowTimeTimestamp{
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init] ;
+    
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    
+    [formatter setDateFormat:@"YYYY-MM-dd HH:mm:ss SSS"]; // ----------设置你想要的格式,hh与HH的区别:分别表示12小时制,24小时制
+    
+    //设置时区,这个对于时间的处理有时很重要
+    
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    
+    [formatter setTimeZone:timeZone];
+    
+    NSDate *datenow = [NSDate date];//现在时间,你可以输出来看下是什么格式
+    
+    long timeStamp =  (long)[datenow timeIntervalSince1970]*1000;
+    
+    return timeStamp;
 }
 @end
 
