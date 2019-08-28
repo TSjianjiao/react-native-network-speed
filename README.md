@@ -1,4 +1,8 @@
 
+[![NPM version](https://badgen.net/npm/v/react-native-network-speed)](https://www.npmjs.com/package/react-native-network-speed)
+[![NPM download week](https://badgen.net/npm/dw/react-native-network-speed)](https://www.npmjs.com/package/react-native-network-speed)
+
+
 # react-native-network-speed
 - 这个模块可以获取当前设备的网络速度，由于我并不是很懂app开发，可能很多bug，暂时还没有时间解决，所以慎用。<br/>
 - 安卓可以获取整个手机以及当前`app`的网络速度，而`ios`目前只能获取整个手机的网络速度，上网查了半天`ios`没找到能精确统计单个`app`网络速度的方法
